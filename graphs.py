@@ -32,6 +32,9 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+def make_plot(values):
+    plt.plot(values, color='#333333', linewidth=2.0)
+
 lines_of_input = sys.stdin.readlines()
 
 if len(sys.argv) == 1 and len(lines_of_input) > 0:
@@ -46,20 +49,21 @@ if len(sys.argv) == 1 and len(lines_of_input) > 0:
         cdr = ' '.join(tokens)
         values.append(float(cons))
         labels.append(cdr)
-        plt.plot(values, color='red')
-        plt.xticks(range(len(values)), labels, size='small', rotation='vertical')
+        make_plot(values)
+        plt.xticks(range(len(values)), labels, rotation='vertical')
+        plt.yticks(color='white')
 
 elif len(sys.argv) == 2:
     raw_values = sys.argv[1].split('\n')
     values = [float(s) for s in raw_values]
-    plt.plot(values, color='red')
+    make_plot(values)
 
 else:
     sys.argv.pop(0)
     raw_values = sys.argv
     values = [float(s) for s in raw_values]
-    plt.plot(values, color='red')
+    make_plot(values)
 
 fig = matplotlib.pyplot.gcf()
-fig.set_size_inches(16.2, 10)
-fig.savefig('./my_graph.png', dpi=100, facecolor='black', edgecolor='none')
+fig.set_size_inches(14, 8.65)
+fig.savefig('./my_graph.png', dpi=100, bbox_inches='tight')
