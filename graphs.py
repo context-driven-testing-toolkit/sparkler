@@ -50,8 +50,7 @@ if len(sys.argv) == 1 and len(lines_of_input) > 0:
         values.append(float(cons))
         labels.append(cdr)
         make_plot(values)
-        plt.xticks(range(len(values)), labels, rotation='vertical')
-        plt.yticks(color='white')
+        plt.xticks(range(len(values)), labels, size='small', rotation=75)
 
 elif len(sys.argv) == 2:
     raw_values = sys.argv[1].split('\n')
