@@ -1,32 +1,35 @@
 #!/usr/bin/env python
+"""
 
-# A cli tool like spark, that produces sparklines from
-# whitespace-delimited lists of numbers passed by other command line
-# arguments.
-#
-# see http://matplotlib.org/users/pyplot_tutorial.html
-#     http://stackoverflow.com/questions/1992640
-#
-# There are three use cases in all:
-# 1. space-delimited list of values (no labels, all values on one line):
-#
-#     git log --since 'september' --format='%ad' --date-order | \
-#         awk '{print $1" "$2" "$3}' | uniq -c | tac | awk '{print $1}' | \
-#         xargs python graphs.py
-#
-# 2. newline-delimited list of values (no labels, newline-delimited):
-#
-#      git log --since 'september' --format='%ad' --date-order | \
-#          awk '{print $1" "$2" "$3}' | uniq -c | tac | awk '{print $1}' | \
-#          python graphs.py
-# 
-# 3. newline-delimited list where each line is a value followed by label text:
-#
-#     git log --since 'september' --format='%ad' --date-order | \
-#         awk '{print $1" "$2" "$3}' | uniq -c | tac | \
-#         python graphs.py
+A CLI tool like spark, that produces sparklines from
+whitespace-delimited lists of numbers passed by other command line
+arguments. See https://github.com/holman/spark
+
+There are three valid use cases:
+
+1. space-delimited list of values (no labels, all values on one line):
+
+    git log --since 'september' --format='%ad' --date-order | \
+        awk '{print $1" "$2" "$3}' | uniq -c | tac | awk '{print $1}' | \
+        xargs python graphs.py
+
+2. newline-delimited list of values (no labels, newline-delimited):
+
+     git log --since 'september' --format='%ad' --date-order | \
+         awk '{print $1" "$2" "$3}' | uniq -c | tac | awk '{print $1}' | \
+         python graphs.py
+
+3. newline-delimited list where each line is a value followed by label text:
+
+    git log --since 'september' --format='%ad' --date-order | \
+        awk '{print $1" "$2" "$3}' | uniq -c | tac | \
+        python graphs.py
+
+"""
 
 import sys
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 lines_of_input = sys.stdin.readlines()
@@ -57,4 +60,6 @@ else:
     values = [float(s) for s in raw_values]
     plt.plot(values)
 
-plt.show()
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(16.2, 10)
+fig.savefig('./my_graph.png',dpi=100)
