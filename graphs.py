@@ -46,20 +46,20 @@ if len(sys.argv) == 1 and len(lines_of_input) > 0:
         cdr = ' '.join(tokens)
         values.append(float(cons))
         labels.append(cdr)
-        plt.plot(values)
+        plt.plot(values, color='red')
         plt.xticks(range(len(values)), labels, size='small', rotation='vertical')
 
 elif len(sys.argv) == 2:
     raw_values = sys.argv[1].split('\n')
     values = [float(s) for s in raw_values]
-    plt.plot(values)
+    plt.plot(values, color='red')
 
 else:
     sys.argv.pop(0)
     raw_values = sys.argv
     values = [float(s) for s in raw_values]
-    plt.plot(values)
+    plt.plot(values, color='red')
 
 fig = matplotlib.pyplot.gcf()
 fig.set_size_inches(16.2, 10)
-fig.savefig('./my_graph.png',dpi=100)
+fig.savefig('./my_graph.png', dpi=100, facecolor='black', edgecolor='none')
