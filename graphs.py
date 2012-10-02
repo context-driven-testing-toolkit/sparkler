@@ -10,26 +10,26 @@
 # Currently usage is like:
 #
 #     git log --since='september' --format='%ad' --date-order | \
-    #        awk '{print $1" "$2" "$3}' | uniq -c | tac | \
-    #        awk '{print $1}' | \
-    #        xargs python ~/git/Arcane/snippets/python/graphs.py
+#            awk '{print $1" "$2" "$3}' | uniq -c | tac | \
+#            awk '{print $1}' | \
+#            xargs python ~/git/Arcane/snippets/python/graphs.py
 
 import matplotlib.pyplot as plt
 import sys
 
-sys.argv.pop(0)
-
-raw_values = sys.argv
+raw_values = sys.argv[1].strip().split('\n')
 values = []
+labels = []
 
 for s in raw_values:
     tokens = s.split()
     cons = tokens.pop(0)
-    cdr = tokens
+    cdr = ' '.join(tokens)
     values.append(float(cons))
+    labels.append(cdr)
 
 # values = [float(s) for s in raw_values]
 
 plt.plot(values)
-plt.xticks(range(len(values)), ['foo'], size='small', rotation='vertical')
+plt.xticks(range(len(values)), labels, size='small', rotation='vertical')
 plt.show()
