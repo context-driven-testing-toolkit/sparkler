@@ -17,19 +17,25 @@
 import matplotlib.pyplot as plt
 import sys
 
-raw_values = sys.argv[1].strip().split('\n')
-values = []
-labels = []
+if len(sys.argv) == 2:
+    raw_values = sys.argv[1].strip().split('\n')
 
-for s in raw_values:
-    tokens = s.split()
-    cons = tokens.pop(0)
-    cdr = ' '.join(tokens)
-    values.append(float(cons))
-    labels.append(cdr)
+    values = []
+    labels = []
 
-# values = [float(s) for s in raw_values]
+    for s in raw_values:
+        tokens = s.split()
+        cons = tokens.pop(0)
+        cdr = ' '.join(tokens)
+        values.append(float(cons))
+        labels.append(cdr)
+        plt.plot(values)
+        plt.xticks(range(len(values)), labels, size='small', rotation='vertical')
 
-plt.plot(values)
-plt.xticks(range(len(values)), labels, size='small', rotation='vertical')
+else:
+    sys.argv.pop(0)
+    raw_values = sys.argv
+    values = [float(s) for s in raw_values]
+    plt.plot(values)
+
 plt.show()
