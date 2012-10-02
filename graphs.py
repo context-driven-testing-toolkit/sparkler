@@ -5,6 +5,7 @@
 # arguments.
 #
 # see http://matplotlib.org/users/pyplot_tutorial.html
+#     http://stackoverflow.com/questions/1992640
 #
 # Currently usage is like:
 #
@@ -21,4 +22,6 @@ sys.argv.pop(0)
 args = [float(s) for s in sys.argv]
 
 plt.plot(args)
+plt.xticks(range(len(sys.argv)), ['foo'], size='small', rotation='vertical')
+
 plt.show()
