@@ -37,7 +37,7 @@ def make_plot(values):
 
 lines_of_input = sys.stdin.readlines()
 
-if len(sys.argv) == 1 and len(lines_of_input) > 0:
+if len(sys.argv) == 1 and len(lines_of_input) > 1:
     raw_values = lines_of_input
 
     values = []
@@ -52,8 +52,8 @@ if len(sys.argv) == 1 and len(lines_of_input) > 0:
         make_plot(values)
         plt.xticks(range(len(values)), labels, size='small', rotation=75)
 
-elif len(sys.argv) == 2:
-    raw_values = sys.argv[1].split('\n')
+elif len(sys.argv) == 1 and len(lines_of_input) == 1:
+    raw_values = lines_of_input[0].split(' ')
     values = [float(s) for s in raw_values]
     make_plot(values)
 
