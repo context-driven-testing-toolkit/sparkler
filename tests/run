@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -x
+
+echo 1 2 3 | python graphs.py && \
+    shasum -c tests/values.shasum && \
+    echo "1
+2
+3" | python graphs.py && \
+    shasum -c tests/values_newline_delimited.shasum && \
+        echo "1 foo bar
+2 baz boz
+3 homer marge" | python graphs.py && \
+    shasum -c tests/values_with_labels.shasum && \
+    set +x && \
+    echo && \
+    echo "SUCCESS! All tests passed OK."
