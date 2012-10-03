@@ -35,33 +35,40 @@ import matplotlib.pyplot as plt
 def make_plot(values):
     plt.plot(values, color='#333333', linewidth=2.0)
 
-lines_of_input = sys.stdin.readlines()
-
-if len(sys.argv) == 1 and len(lines_of_input) > 1:
-    raw_values = lines_of_input
-
-    values = []
-    labels = []
-
-    for s in raw_values:
-        tokens = s.split()
-        cons = tokens.pop(0)
-        cdr = ' '.join(tokens)
-        values.append(float(cons))
-        labels.append(cdr)
-        make_plot(values)
-        plt.xticks(range(len(values)), labels, size='small', rotation=75)
-
-elif len(sys.argv) == 1 and len(lines_of_input) == 1:
-    raw_values = lines_of_input[0].split(' ')
-    values = [float(s) for s in raw_values]
-    make_plot(values)
-
-else:
+if len(sys.argv) > 1:
     sys.argv.pop(0)
     raw_values = sys.argv
     values = [float(s) for s in raw_values]
     make_plot(values)
+else:
+    
+    lines_of_input = sys.stdin.readlines()
+
+    if len(sys.argv) == 1 and len(lines_of_input) > 1:
+        raw_values = lines_of_input
+
+        values = []
+        labels = []
+
+        for s in raw_values:
+            tokens = s.split()
+            cons = tokens.pop(0)
+            cdr = ' '.join(tokens)
+            values.append(float(cons))
+            labels.append(cdr)
+            make_plot(values)
+            plt.xticks(range(len(values)), labels, size='small', rotation=75)
+
+    elif len(sys.argv) == 1 and len(lines_of_input) == 1:
+        raw_values = lines_of_input[0].split(' ')
+        values = [float(s) for s in raw_values]
+        make_plot(values)
+
+    else:
+        sys.argv.pop(0)
+        raw_values = sys.argv
+        values = [float(s) for s in raw_values]
+        make_plot(values)
 
 fig = matplotlib.pyplot.gcf()
 fig.set_size_inches(14, 8.65)
