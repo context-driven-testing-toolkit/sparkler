@@ -1,8 +1,12 @@
 import sys
 
-print 'sys.argv:' 
-print sys.argv
+if len(sys.argv) > 1:
 
-# for multiline input:
-print 'sys.stdin.readlines()'
-print sys.stdin.readlines()
+    print 'sys.argv:' 
+    print sys.argv
+
+else:
+
+    # for multiline input:
+    print 'sys.stdin.readlines()'
+    print sys.stdin.readlines()
