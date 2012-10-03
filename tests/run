@@ -12,6 +12,8 @@ echo 1 2 3 | python graphs.py && \
 2 baz boz
 3 homer marge" | python graphs.py && \
     shasum -c tests/values_with_labels.shasum && \
+    python graphs.py 1 2 3 && \
+    shasum -c tests/regular_arguments.shasum && \
     set +x && \
     echo && \
     echo "SUCCESS! All tests passed OK."
