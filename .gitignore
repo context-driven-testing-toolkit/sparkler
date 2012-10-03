@@ -29,3 +29,9 @@ pip-log.txt
 #Emacs tmp files
 *~
 *#
+
+#Maruku generated files
+README.html
+
+#Sparkler generated files
+my_graph.png
