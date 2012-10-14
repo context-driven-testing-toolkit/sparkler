@@ -66,8 +66,9 @@ if len(raw_values) > 1 and len(raw_values[0].strip().split(' ')) > 1:
         cdr = ' '.join(tokens)
         values.append(float(cons))
         labels.append(cdr)
-        make_plot(values)
-        plt.xticks(range(len(values)), labels, size='small', rotation=75)
+
+    make_plot(values)
+    plt.xticks(range(len(values)), labels, size='small', rotation=75)
 
 elif len(raw_values) > 1:
     plot_integers(raw_values)
