@@ -71,22 +71,12 @@ def sample_from_labels(labels):
 
 def filter_for_labels(labels_that_can_fit_on_the_y_axis, labels):
     filtered_labels = []
-    if (len(labels) <= (4 + labels_that_can_fit_on_the_y_axis)):
-        for index, label in enumerate(labels):
-            if (index > labels_that_can_fit_on_the_y_axis):
-                filtered_labels.append(' ')
-            else:
-                filtered_labels.append(label)
-
-    else:
-        every_nth_label = len(labels) / labels_that_can_fit_on_the_y_axis
-        for index, label in enumerate(labels):
-            if (index % every_nth_label != 0):
-                filtered_labels.append(' ')
-            else:
-                filtered_labels.append(label)
-
-
+    every_nth_label = len(labels) / (labels_that_can_fit_on_the_y_axis / 2)
+    for index, label in enumerate(labels):
+        if (index % every_nth_label != 0):
+            filtered_labels.append(' ')
+        else:
+            filtered_labels.append(label)
 
     return filtered_labels
 

@@ -18,12 +18,12 @@ echo 0 1 1 | python graphs.py && \
 377 lisa milhouse
 610 burns smithers' && \
     shasum -c tests/regular_args_with_labels.shasum && \
-    ruby -e 'x=1; 54.times {puts (x += 1).to_s + " lorem ipsum"}' | \
+    ruby -e 'x=1; 50.times {puts (x += 1).to_s + " lorem ipsum"}' | \
     python graphs.py && \
-    shasum -c tests/many_labels_54.shasum && \
-    ruby -e 'x=1; 100.times {puts (x += 1).to_s + " lorem ipsum"}' | \
+    shasum -c tests/many_labels_50.shasum && \
+    ruby -e 'x=1; 51.times {puts (x += 1).to_s + " lorem ipsum"}' | \
     python graphs.py && \
-    shasum -c tests/many_labels_100.shasum && \
+    shasum -c tests/many_labels_51.shasum && \
     set +x && \
     echo && \
     echo "SUCCESS! All tests passed OK."
