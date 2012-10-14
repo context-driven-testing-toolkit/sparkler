@@ -54,6 +54,31 @@ def get_inputs():
         else:
             return raw_input
 
+"""
+Only so many labels fit comfortably along the y-axis. After that,
+downsample the labels so that we only print as many as will fit. Don't
+attempt to be smart about which labels to filter, just use the overall
+count of labels as a guide.
+"""
+def sample_from_labels(labels):
+    labels_that_can_fit_on_the_y_axis = 50
+    filtered_labels = []
+    if (len(labels) > labels_that_can_fit_on_the_y_axis):
+        filtered_labels = filter_for_labels(labels_that_can_fit_on_the_y_axis, labels)
+    else:
+        filtered_labels = labels
+    return filtered_labels
+
+def filter_for_labels(labels_that_can_fit_on_the_y_axis, labels):
+    filtered_labels = []
+    if (len(labels) <= 2 * labels_that_can_fit_on_the_y_axis):
+        for index, label in enumerate(labels):
+            if (index > labels_that_can_fit_on_the_y_axis):
+                filtered_labels.append(' ')
+            else: 
+                filtered_labels.append(label)
+    return filtered_labels
+        
 raw_values = get_inputs()
 
 if len(raw_values) > 1 and len(raw_values[0].strip().split(' ')) > 1:
@@ -67,8 +92,12 @@ if len(raw_values) > 1 and len(raw_values[0].strip().split(' ')) > 1:
         values.append(float(cons))
         labels.append(cdr)
 
+    labels = sample_from_labels(labels)
+
     make_plot(values)
     plt.xticks(range(len(values)), labels, size='small', rotation=75)
+
+
 
 elif len(raw_values) > 1:
     plot_integers(raw_values)
