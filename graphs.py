@@ -76,5 +76,5 @@ else:
      plot_integers(raw_values[0].strip().split(' '))
 
 fig = matplotlib.pyplot.gcf()
-fig.set_size_inches(14, 8.65)
+fig.set_size_inches(10, 8)
 fig.savefig('./my_graph.png', dpi=100, bbox_inches='tight')
