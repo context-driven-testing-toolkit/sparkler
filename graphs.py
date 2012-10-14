@@ -77,4 +77,4 @@ else:
 
 fig = matplotlib.pyplot.gcf()
 fig.set_size_inches(10, 8)
-fig.savefig('./my_graph.png', dpi=100, bbox_inches='tight')
+fig.savefig('./my_graph.png', dpi=300, bbox_inches='tight')
