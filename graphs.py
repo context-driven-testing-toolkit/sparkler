@@ -73,7 +73,9 @@ def filter_for_labels(labels_that_can_fit_on_the_y_axis, labels):
     filtered_labels = []
     every_nth_label = len(labels) / (labels_that_can_fit_on_the_y_axis / 2)
     for index, label in enumerate(labels):
-        if (index % every_nth_label != 0):
+        if ((index + 1) == len(labels)):
+            filtered_labels.append(label)
+        elif (index % every_nth_label != 0):
             filtered_labels.append(' ')
         else:
             filtered_labels.append(label)
