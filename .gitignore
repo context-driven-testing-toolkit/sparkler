@@ -3,6 +3,8 @@
 #Emacs tmp files
 *~
 *#
+.#*
+\#*
 
 #Maruku generated files
 README.html
