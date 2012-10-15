@@ -3,4 +3,6 @@
 import sys
 sys.path.append('lib/')
 
-import graphs
+from graphs import sparkler_cli
+
+sparkler_cli()

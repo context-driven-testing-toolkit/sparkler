@@ -91,32 +91,34 @@ def filter_for_labels(labels_that_can_fit_on_the_y_axis, labels):
 
     return filtered_labels
 
-raw_values = get_inputs()
+def sparkler_cli():
+    raw_values = get_inputs()
 
-if len(raw_values) > 1 and len(raw_values[0].strip().split(' ')) > 1:
-    values = []
-    labels = []
+    if len(raw_values) > 1 and len(raw_values[0].strip().split(' ')) > 1:
+        values = []
+        labels = []
 
-    for s in raw_values:
-        tokens = s.strip().split()
-        cons = tokens.pop(0)
-        cdr = ' '.join(tokens)
-        values.append(float(cons))
-        labels.append(cdr)
+        for s in raw_values:
+            tokens = s.strip().split()
+            cons = tokens.pop(0)
+            cdr = ' '.join(tokens)
+            values.append(float(cons))
+            labels.append(cdr)
 
-    labels = sample_from_labels(labels)
+        labels = sample_from_labels(labels)
 
-    make_plot(values)
-    plt.xticks(range(len(values)), labels, size='small', rotation=75)
+        make_plot(values)
+        plt.xticks(range(len(values)), labels, size='small', rotation=75)
 
 
 
-elif len(raw_values) > 1:
-    plot_integers(raw_values)
+    elif len(raw_values) > 1:
+        plot_integers(raw_values)
 
-else:
-     plot_integers(raw_values[0].strip().split(' '))
+    else:
+        plot_integers(raw_values[0].strip().split(' '))
 
-fig = matplotlib.pyplot.gcf()
-fig.set_size_inches(10, 8)
-fig.savefig('./my_graph.png', dpi=300, bbox_inches='tight')
+    fig = matplotlib.pyplot.gcf()
+    fig.set_size_inches(10, 8)
+    fig.savefig('./my_graph.png', dpi=300, bbox_inches='tight')
+
