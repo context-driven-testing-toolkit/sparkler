@@ -46,6 +46,13 @@ watch( '(.*\.py$)' )  { |m|
         m[1])
 }
 
+watch( '(.*bin/sparkler$)' )  { |m|
+  check(%{tests/run},
+        "Tests for #{m[2]}",
+        m[1])
+}
+
+
 # Press Ctl-C to quit.
 
 Signal.trap('INT' ) { abort("\n") } # Ctrl-C

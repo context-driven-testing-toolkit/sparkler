@@ -122,3 +122,4 @@ def sparkler_cli():
     fig.set_size_inches(10, 8)
     fig.savefig('./my_graph.png', dpi=300, bbox_inches='tight')
 
+sparkler_cli()
