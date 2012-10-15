@@ -33,7 +33,16 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 def make_plot(values):
-    plt.plot(values, color='#333333', linewidth=2.0)
+    if len(values) > 100:
+        make_scatter_plot(values)
+    else:
+        make_line_graph(values)
+
+def make_line_graph(values):
+    plt.plot(values, '-', color='#333333', linewidth=2.0)
+
+def make_scatter_plot(values):
+    plt.plot(values, '.', color='#333333', linewidth=2.0)
 
 def plot_integers(raw_values):
     values = [float(s) for s in raw_values]
