@@ -59,7 +59,7 @@ and also
 The following command will install all dependencies, and should work
 on any system with a relatively modern version of Python:
 
-    sudo easy_instally numpy matplotlib
+    sudo easy_install numpy matplotlib
 
 ## How to run the tests
 
