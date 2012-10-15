@@ -24,6 +24,13 @@ echo 0 1 1 | python graphs.py && \
     ruby -e 'x=1; 51.times {puts (x += 1).to_s + " lorem ipsum"}' | \
     python graphs.py && \
     shasum -c tests/many_labels_51.shasum && \
+    ruby -e 'x=1; 100.times {puts (x *= 1.02).to_s + " lorem ipsum"}' | \
+    python graphs.py && \
+    diff my_graph.png tests/line_plot_below_100_data_points.png && \
+    ruby -e 'x=1; 101.times {puts (x *= 1.02).to_s + " lorem ipsum"}' | \
+    python graphs.py && \
+    diff my_graph.png tests/scatterplot_above_100_data_points.png && \
+
     set +x && \
     echo && \
     echo "SUCCESS! All tests passed OK."
