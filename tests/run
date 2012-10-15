@@ -2,33 +2,33 @@
 
 set -x
 
-echo 0 1 1 | python graphs.py && \
+echo 0 1 1 | bin/sparkler && \
     diff my_graph.png tests/plots/values.png && \
     echo "3
 5
-8" | python graphs.py && \
+8" | bin/sparkler && \
     diff my_graph.png tests/plots/values_newline_delimited.png && \
         echo "13 foo bar
 21 baz boz
-34 homer marge" | python graphs.py && \
+34 homer marge" | bin/sparkler && \
     diff my_graph.png tests/plots/values_with_labels.png && \
-    python graphs.py 55 89 144 && \
+    bin/sparkler 55 89 144 && \
     diff my_graph.png tests/plots/regular_arguments.png && \
-    python graphs.py '233 carl lenny
+    bin/sparkler '233 carl lenny
 377 lisa milhouse
 610 burns smithers' && \
     diff my_graph.png tests/plots/regular_args_with_labels.png && \
     ruby -e 'x=1; 50.times {puts (x += 1).to_s + " lorem ipsum"}' | \
-    python graphs.py && \
+    bin/sparkler && \
     diff my_graph.png tests/plots/many_labels_50.png && \
     ruby -e 'x=1; 51.times {puts (x += 1).to_s + " lorem ipsum"}' | \
-    python graphs.py && \
+    bin/sparkler && \
     diff my_graph.png tests/plots/many_labels_51.png && \
     ruby -e 'x=1; 100.times {puts (x *= 1.02).to_s + " lorem ipsum"}' | \
-    python graphs.py && \
+    bin/sparkler && \
     diff my_graph.png tests/plots/line_plot_below_100_data_points.png && \
     ruby -e 'x=1; 101.times {puts (x *= 1.02).to_s + " lorem ipsum"}' | \
-    python graphs.py && \
+    bin/sparkler && \
     diff my_graph.png tests/plots/scatterplot_above_100_data_points.png && \
     set +x && \
     echo && \
