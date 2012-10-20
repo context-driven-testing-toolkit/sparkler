@@ -70,7 +70,7 @@ attempt to be smart about which labels to filter, just use the overall
 count of labels as a guide.
 """
 def sample_from_labels(labels):
-    labels_that_can_fit_on_the_y_axis = 50
+    labels_that_can_fit_on_the_y_axis = 40
     filtered_labels = []
     if (len(labels) > labels_that_can_fit_on_the_y_axis):
         filtered_labels = filter_for_labels(labels_that_can_fit_on_the_y_axis, labels)
