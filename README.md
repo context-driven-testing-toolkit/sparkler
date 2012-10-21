@@ -1,4 +1,4 @@
-sparkler
+sparkler: graphical plots from shell command output
 ========
 
 A cli tool directly inspired by [spark][spark]. sparkler produces
@@ -32,8 +32,8 @@ printed.
 Just pipe a newline-delimited list of integers to **bin/sparkler** and it
 will produce a graphical plot.
 
-The following command will produce a file called `./my_graph.png` that
-shows the first nine integers of the Fibonacci Sequence.
+The following command will produce a graphical plot that shows the
+first nine integers of the Fibonacci Sequence.
 
     echo 0 1 1 2 3 5 8 13 21 | bin/sparkler
 
