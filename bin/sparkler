@@ -35,6 +35,8 @@ import matplotlib.pyplot as plt
 def make_plot(values):
     high_water_mark = max(values)
     low_water_mark = min(values)
+    index_of_high_water = values.index(high_water_mark)
+
     use_log_scale = False
 
     if (high_water_mark - low_water_mark) > 1000:
@@ -49,6 +51,28 @@ def make_plot(values):
         width=1,
         log=use_log_scale
         )
+
+    if plt.axis()[3] != high_water_mark:
+        plt.annotate(
+            '{0:g}'.format(high_water_mark),
+            xy=(index_of_high_water, high_water_mark),
+            xytext=(0, 12),
+            xycoords=('data'),
+            textcoords='offset points',
+            ha='center',
+            color="#666666",
+            arrowprops=dict(
+                arrowstyle='-',
+                color="#666666"
+                ),
+            bbox=dict(
+                boxstyle="square",
+                fc="w",
+                color="#666666"
+                )
+            )
+
+    plt.axis('tight')
 
 def plot_integers(raw_values):
     values = [float(s) for s in raw_values]
@@ -122,7 +146,6 @@ def sparkler_cli():
     else:
         plot_integers(raw_values[0].split())
 
-    plt.axis('tight')
     fig = matplotlib.pyplot.gcf()
     fig.set_size_inches(13.5, 8)
     fig.savefig('./my_graph.png', dpi=300, bbox_inches='tight')
