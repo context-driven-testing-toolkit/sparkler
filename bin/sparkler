@@ -37,9 +37,9 @@ def make_plot(values):
         range(len(values)),
         values,
         color='#333333',
-        edgecolor='none',
-        alpha=0.65,
-        align='center'
+        linewidth=0,
+        align='center',
+        width=1
         )
 
 def plot_integers(raw_values):
