@@ -33,16 +33,13 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 def make_plot(values):
-    if len(values) > 100:
-        make_scatter_plot(values)
-    else:
-        make_line_graph(values)
-
-def make_line_graph(values):
-    plt.plot(values, '-', color='#333333', linewidth=2.0)
-
-def make_scatter_plot(values):
-    plt.plot(values, '.', color='#333333', linewidth=2.0)
+    plt.bar(
+        range(len(values)),
+        values,
+        color='#333333',
+        edgecolor='none',
+        alpha=0.85,
+        )
 
 def plot_integers(raw_values):
     values = [float(s) for s in raw_values]
@@ -117,7 +114,7 @@ def sparkler_cli():
         plot_integers(raw_values[0].split())
 
     fig = matplotlib.pyplot.gcf()
-    fig.set_size_inches(10, 8)
+    fig.set_size_inches(13.5, 8)
     fig.savefig('./my_graph.png', dpi=300, bbox_inches='tight')
 
 sparkler_cli()
