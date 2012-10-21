@@ -33,13 +33,21 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 def make_plot(values):
+    high_water_mark = max(values)
+    low_water_mark = min(values)
+    use_log_scale = False
+
+    if (high_water_mark - low_water_mark) > 1000:
+        use_log_scale = True
+
     plt.bar(
         range(len(values)),
         values,
         color='#333333',
         linewidth=0,
         align='center',
-        width=1
+        width=1,
+        log=use_log_scale
         )
 
 def plot_integers(raw_values):
