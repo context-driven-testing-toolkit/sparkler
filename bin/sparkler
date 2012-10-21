@@ -28,14 +28,16 @@ There are three valid use cases:
 """
 
 import sys
+import numpy
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 def make_plot(values):
-    high_water_mark = max(values)
     low_water_mark = min(values)
+    high_water_mark = max(values)
     index_of_high_water = values.index(high_water_mark)
+    median_value = numpy.median(values)
 
     use_log_scale = False
 
@@ -71,6 +73,22 @@ def make_plot(values):
                 color="#666666"
                 )
             )
+
+    plt.axhline(
+        y=median_value,
+        color="#666666",
+        alpha=0.5
+        )
+
+    plt.annotate(
+        '{0:g}'.format(median_value),
+        xy=(1, median_value),
+        xytext=(8, 0),
+        xycoords=('axes fraction', 'data'),
+        textcoords='offset points',
+        va='center',
+        color="#333333"
+        )
 
     plt.axis('tight')
 
