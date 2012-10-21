@@ -38,7 +38,8 @@ def make_plot(values):
         values,
         color='#333333',
         edgecolor='none',
-        alpha=0.85,
+        alpha=0.65,
+        align='center'
         )
 
 def plot_integers(raw_values):
@@ -113,6 +114,7 @@ def sparkler_cli():
     else:
         plot_integers(raw_values[0].split())
 
+    plt.axis('tight')
     fig = matplotlib.pyplot.gcf()
     fig.set_size_inches(13.5, 8)
     fig.savefig('./my_graph.png', dpi=300, bbox_inches='tight')
