@@ -1,35 +1,5 @@
 #!/usr/bin/env bash
 
-set -x
-
-echo 0 1 1 | bin/sparkler && \
-    diff my_graph.png tests/plots/values.png && \
-    echo "3
-5
-8" | bin/sparkler && \
-    diff my_graph.png tests/plots/values_newline_delimited.png && \
-        echo "13 foo bar
-21 baz boz
-34 homer marge" | bin/sparkler && \
-    diff my_graph.png tests/plots/values_with_labels.png && \
-    bin/sparkler 55 89 144 && \
-    diff my_graph.png tests/plots/regular_arguments.png && \
-    bin/sparkler '233 carl lenny
-377 lisa milhouse
-610 burns smithers' && \
-    diff my_graph.png tests/plots/regular_args_with_labels.png && \
-    ruby -e 'x=1; 50.times {puts (x += 1).to_s + " lorem ipsum"}' | \
-    bin/sparkler && \
-    diff my_graph.png tests/plots/many_labels_50.png && \
-    ruby -e 'x=1; 51.times {puts (x += 1).to_s + " lorem ipsum"}' | \
-    bin/sparkler && \
-    diff my_graph.png tests/plots/many_labels_51.png && \
-    ruby -e 'x=1; 100.times {puts (x *= 1.02).to_s + " lorem ipsum"}' | \
-    bin/sparkler && \
-    diff my_graph.png tests/plots/line_plot_below_100_data_points.png && \
-    ruby -e 'x=1; 101.times {puts (x *= 1.02).to_s + " lorem ipsum"}' | \
-    bin/sparkler && \
-    diff my_graph.png tests/plots/scatterplot_above_100_data_points.png && \
-    set +x && \
-    echo && \
-    echo "SUCCESS! All tests passed OK."
+time find tests/lib -name *_test.sh | \
+    parallel -j0 'sh {} && echo -n . || (echo FAILED: {} && exit 1)' && \
+    echo && echo "SUCCESS! All tests passed." || (echo && echo FAILURE && exit 1)
