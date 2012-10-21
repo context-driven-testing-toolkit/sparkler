@@ -14,9 +14,15 @@ that makes sense while reducing visual noise.
    the entire area available for display
  * use log scale if the range of values is large
 
-The output image is written to a file called `my_graph.png` in the
-current working directory. **Older output files will be silently
-overwritten.**
+The output image is written to a file called `graph-<HASH>.png` in the
+current working directory, where `<HASH>` is the sha1 hash of the
+argument list that was passed to sparkler. This means that each data
+set you pass to sparkler should result in a consistent file name that
+is unique to that data set. The name of the generated png file is
+echoed back to the command line so that you can easily reference it in
+your scripts. Eg:
+
+    open `sparkler 0 1 1 2 3 5`
 
 sparkler graphs should fit exactly on a sheet of legal paper when
 printed.
