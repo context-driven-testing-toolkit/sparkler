@@ -1,9 +1,9 @@
 sparkler
 ========
 
-A cli tool like spark, that produces graphical plots from
-whitespace-delimited lists of numbers passed by other command line
-arguments.
+A cli tool directly inspired by [spark][spark]. sparkler produces
+graphical plots from whitespace-delimited lists of numbers passed by
+other command line arguments.
 
 sparkler makes an attempt to be smart about displaying data in a way
 that makes sense while reducing visual noise.
@@ -110,3 +110,4 @@ graph. When you reach a point where you have multiple data series
 saved in different files, you should consider using a tool more
 powerful than **sparkler.**
 
+[spark]: https://github.com/holman/spark 'spark is an awesome command-line tool for drawing sparklines in your shell'
