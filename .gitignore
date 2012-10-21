@@ -6,6 +6,9 @@
 .#*
 \#*
 
+#MacOS tmp files
+.DS_Store
+
 #Maruku generated files
 README.html
 
