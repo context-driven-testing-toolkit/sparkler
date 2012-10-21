@@ -28,6 +28,7 @@ There are three valid use cases:
 """
 
 import sys
+import hashlib
 import numpy
 import matplotlib
 matplotlib.use('Agg')
@@ -166,6 +167,13 @@ def sparkler_cli():
 
     fig = matplotlib.pyplot.gcf()
     fig.set_size_inches(13.5, 8)
-    fig.savefig('./my_graph.png', dpi=300, bbox_inches='tight')
+
+    guid = hashlib.sha1(''.join(raw_values)).hexdigest()
+
+    file_name='./graph-' + guid + '.png'
+
+    fig.savefig(file_name, dpi=300, bbox_inches='tight')
+
+    print(file_name)
 
 sparkler_cli()
