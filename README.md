@@ -5,12 +5,21 @@ A cli tool like spark, that produces graphical plots from
 whitespace-delimited lists of numbers passed by other command line
 arguments.
 
-A _line graph_ is produced if you give **sparkler** a small data
-set. Larger data sets are represented as _scatter plots._
+sparkler makes an attempt to be smart about displaying data in a way
+that makes sense while reducing visual noise.
+
+ * if the x-axis has labels, perform sampling for large data sets (so
+   that the labels never overlap)
+ * fit the graph to the drawing area, so that the graph always fills
+   the entire area available for display
+ * use log scale if the range of values is large
 
 The output image is written to a file called `my_graph.png` in the
 current working directory. **Older output files will be silently
 overwritten.**
+
+sparkler graphs should fit exactly on a sheet of legal paper when
+printed.
 
 ## Usage
 
