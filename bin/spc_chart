@@ -68,11 +68,6 @@ def make_plot(values):
     stdout_filehandle = sys.stdout
     sys.stdout = sys.stderr
 
-    print('ranges: {}'.format(sorted(ranges)))
-    print('median range: {}'.format(raw_median_range))
-    print('upper control limit: {}'.format(upper_limit))
-    print('lower control limit: {}'.format(lower_limit))
-
     sys.stdout = stdout_filehandle
 
     plt.plot(values, 'ko')
