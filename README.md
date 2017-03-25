@@ -5,6 +5,8 @@ A cli tool directly inspired by [spark][spark]. sparkler produces
 graphical plots from whitespace-delimited lists of numbers passed by
 other command line arguments.
 
+In 2017 I wrote [an introductory article about sparkler.](http://infiniteundo.com/post/158800222608/sparkler-graphs-in-terminal "it has some nice screenshots")
+
 sparkler makes an attempt to be smart about displaying data in a way
 that makes sense while reducing visual noise.
 
