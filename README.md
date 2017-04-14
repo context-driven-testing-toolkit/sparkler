@@ -1,7 +1,16 @@
 sparkler: graphical plots from shell command output
 ========
 
-A cli tool directly inspired by [spark][spark]. sparkler produces
+## This is a branch, modified to produce Statistical Process Control Charts 
+### SPC Charts are produced by this branch, rather than the minimal graphs produced by the sparkler main branch. 
+
+In all other respects the UI and behavior are the same as vanilla `sparkler`.
+
+For more on SPC charts see [Message From The Skies | InspGuilfoyle](https://inspguilfoyle.wordpress.com/2013/08/03/message-from-the-skies/ "Author of Intelligent Policing") and for *much* more see the book: <a target="_blank" href="https://www.amazon.com/gp/product/B00C1JUN5A/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00C1JUN5A&linkCode=as2&tag=noahsussman-20&linkId=9141316961d57db5c90cf42235c3583c">Intelligent Policing: How Systems Thinking Methods Eclipse Conventional Management Practice</a><img src="//ir-na.amazon-adsystem.com/e/ir?t=noahsussman-20&l=am2&o=1&a=B00C1JUN5A" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+## Synopsis
+
+Sparkler is a CLI tool directly inspired by [spark][spark]. sparkler produces
 graphical plots from whitespace-delimited lists of numbers passed by
 other command line arguments.
 
