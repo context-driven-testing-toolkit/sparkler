@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
 """
 Create SPC charts from data sets. Inspired by Simon Guilfoyle's
 "Intelligent Policing" http://amzn.to/1dNNCfb
@@ -196,7 +197,7 @@ def spc_chart_cli():
     fig = matplotlib.pyplot.gcf()
     fig.set_size_inches(13.5, 8)
 
-    guid = hashlib.sha1(''.join(raw_values)).hexdigest()
+    guid = hashlib.sha1(''.join(raw_values).encode('utf-8')).hexdigest()
 
     file_name='./spc-chart-' + guid + '.png'
 
