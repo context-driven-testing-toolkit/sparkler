@@ -30,7 +30,7 @@ For example:
     9 Wed Oct 17 13:40:55 EDT 2018
     21 Wed Oct 17 13:40:51 EDT 2018
     11 Wed Sep 19 11:50:57 EDT 2018" \
-    | spc_chart
+    | bin/spc_chart
 
 This produces a chart file named `spc-chart-d8e9d9e86bcc714332e8954a6bafd2521b86a242.png`
 
