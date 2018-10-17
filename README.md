@@ -6,12 +6,14 @@ sparkler: graphical plots from shell command output
 Just pipe a newline-delimited list of integers to **bin/sparkler** or **bin/spc_chart** and it
 will produce a graphical plot.
 
-### Support For Timestamped Time Series (NEW!)
+### Labeled Series, Including Time Series
 
-`spc_chart` and `sparkler` both support date time series as long as the first value on each 
-line is a number and the rest of the line is a date string.
+`spc_chart` and `sparkler` both support labels on data series as long as the first value on each 
+line is a number and the rest of the line is the label. If there are many labels sampling will 
+be performed so that only a few labels appear on the x-axis. This keeps the graph readable even
+if there are hundreds of data points.
 
-For example:
+For example this can be useful if you have a time series:
 
     echo "27 Wed Sep 26 13:50:57 EDT 2018
     13 Wed Oct 3 13:50:56 EDT 2018
