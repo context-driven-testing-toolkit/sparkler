@@ -38,7 +38,7 @@ This produces a chart file named `spc-chart-d8e9d9e86bcc714332e8954a6bafd2521b86
 
 If you open that PNG file you will see this chart:
 
-<img src="https://i.imgur.com/93BABiNm.png" 
+<img src="https://i.imgur.com/ZW6PdlBl.png" 
    alt="a dot plot with control lines above and below the time series">
 
 ### Simple Use
